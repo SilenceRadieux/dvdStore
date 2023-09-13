@@ -1,15 +1,21 @@
 package com.simplon.dvdstore.repositories;
 
-import com.simplon.dvdstore.DvdModel;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import java.util.List;
 
-public interface DvdStoreRepository extends CrudRepository<DvdModel, Long> {
+@Repository
+public interface DvdStoreRepository extends CrudRepository<DvdRepositoryModel, Long> {
 
-    List<DvdModel> findByName(String name);
+    DvdRepositoryModel save(DvdRepositoryModel dvdRepositoryModel);
 
-    DvdModel findById(long id);
+    List<DvdRepositoryModel> findAll();
 
-    List<DvdModel> findAll();
+//    DvdRepositoryModel findById(long id);
+//
+//    DvdRepositoryModel deleteById(long id);
+//
+//    DvdRepositoryModel update(long id, DvdRepositoryModel dvdRepositoryModel);
+
 
 }
