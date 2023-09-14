@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class DvdServiceModel {
+public class SaleServiceModel {
 
-    private String name;
-    private String genre;
+    private long idClient;
+    private long idDvd;
     private int quantity;
 
 }

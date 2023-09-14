@@ -1,11 +1,10 @@
 package com.simplon.dvdstore.controllers;
 
-import com.simplon.dvdstore.repositories.DvdStoreRepository;
 import com.simplon.dvdstore.services.DvdServiceModel;
 import com.simplon.dvdstore.services.DvdStoreService;
-import com.simplon.dvdstore.utils.DvdMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +13,20 @@ import java.util.List;
 @RequestMapping("dvd")
 public class DvdStoreController {
 
-    private DvdMapper dvdMapper;
-
-    private DvdStoreRepository dvdStoreRepository;
+//    private DvdMapper dvdMapper;
 
     @Autowired
-    public DvdStoreController(DvdMapper dvdMapper, DvdStoreRepository dvdStoreRepository){
-        this.dvdMapper = dvdMapper;
-        this.dvdStoreRepository = dvdStoreRepository;
-    }
+    private DvdStoreService dvdStoreService;
 
-    DvdStoreService dvdStoreService;
+//    @Autowired
+//    public DvdStoreController(DvdMapper dvdMapper, DvdStoreRepository dvdStoreRepository){
+//        this.dvdMapper = dvdMapper;
+//        this.dvdStoreRepository = dvdStoreRepository;
+//    }
 
     @PostMapping
     public boolean addDvd(@RequestBody DvdStoreDTO dvdStoreDTO){
-        DvdServiceModel dvdServiceModel = new DvdServiceModel(dvdStoreDTO.name(), dvdStoreDTO.genre());
+        DvdServiceModel dvdServiceModel = new DvdServiceModel(dvdStoreDTO.name(), dvdStoreDTO.genre(), dvdStoreDTO.quantity());
         return dvdStoreService.add(dvdServiceModel);
     }
 
@@ -37,14 +35,14 @@ public class DvdStoreController {
         List<DvdServiceModel> dvds = dvdStoreService.findAll();
         List<DvdStoreDTO> dvdStoreDTOs = new ArrayList<>();
         for (DvdServiceModel dvd : dvds) {
-            dvdStoreDTOs.add(new DvdStoreDTO(dvd.getName(), dvd.getGenre()));
+            dvdStoreDTOs.add(new DvdStoreDTO(dvd.getName(), dvd.getGenre(), dvd.getQuantity()));
         }
         return dvdStoreDTOs;
     }
 
     @PutMapping("/{id}")
     public boolean updateDvd(@PathVariable("id") long id, @RequestBody DvdStoreDTO dvdStoreDTO){
-        DvdServiceModel dvdServiceModel = new DvdServiceModel(dvdStoreDTO.name(), dvdStoreDTO.genre());
+        DvdServiceModel dvdServiceModel = new DvdServiceModel(dvdStoreDTO.name(), dvdStoreDTO.genre(), dvdStoreDTO.quantity());
         return dvdStoreService.update(id, dvdServiceModel);
     }
 

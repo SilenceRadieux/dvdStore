@@ -20,7 +20,7 @@ public class DvdStoreService {
     }
 
     public boolean add(DvdServiceModel dvdServiceModel) {
-        DvdRepositoryModel dvdRepositoryModel = new DvdRepositoryModel(dvdServiceModel.getName(), dvdServiceModel.getGenre());
+        DvdRepositoryModel dvdRepositoryModel = new DvdRepositoryModel(dvdServiceModel.getName(), dvdServiceModel.getGenre(), dvdServiceModel.getQuantity());
         DvdRepositoryModel dvdRepositoryModelReturned = dvdStoreRepository.save(dvdRepositoryModel);
         return dvdRepositoryModelReturned != null;
     }
@@ -29,7 +29,7 @@ public class DvdStoreService {
         List<DvdRepositoryModel> dvds = dvdStoreRepository.findAll();
         List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
         for (DvdRepositoryModel dvd : dvds) {
-            dvdServiceModels.add(new DvdServiceModel(dvd.getName(), dvd.getGenre()));
+            dvdServiceModels.add(new DvdServiceModel(dvd.getName(), dvd.getGenre(), dvd.getQuantity()));
         }
         return dvdServiceModels;
     }
@@ -49,7 +49,9 @@ public class DvdStoreService {
             DvdRepositoryModel dvd = optionalDvd.get();
             dvd.setName(dvdServiceModel.getName());
             dvd.setGenre(dvdServiceModel.getGenre());
+            dvd.setQuantity(dvdServiceModel.getQuantity());
             dvdStoreRepository.save(dvd);
+            System.out.println("ok");
             return true;
         }
         return false;

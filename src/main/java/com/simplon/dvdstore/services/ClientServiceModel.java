@@ -5,10 +5,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class DvdServiceModel {
+public class ClientServiceModel {
 
     private String name;
-    private String genre;
-    private int quantity;
+    private String email;
 
 }
