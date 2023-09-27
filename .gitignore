@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Node Module ###
+./dvd-store/node_modules
+./back/target/classes/application.properties
+
+lib
