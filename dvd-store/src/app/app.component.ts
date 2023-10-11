@@ -6,15 +6,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-recap';
-  searchText = 'a';
-
-  handleSearchInput = (event: any) => {
-    this.searchText = event?.target.value
-  }
-
-  handleButtonSearchClick = () => {
-    console.log(this.searchText)
-  }
 }
 
 

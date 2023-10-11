@@ -4,25 +4,28 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * The type Sale repository model.
+ */
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "sale")
 public class SaleRepositoryModel {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-  @ManyToOne
-  @JoinColumn(name = "client_id")
-  private ClientRepositoryModel client;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private ClientRepositoryModel client;
 
-  @ManyToOne
-  @JoinColumn(name = "dvd_id")
-  private DvdRepositoryModel dvd;
+    @ManyToOne
+    @JoinColumn(name = "dvd_id")
+    private DvdRepositoryModel dvd;
 
-  @Column(name = "quantity")
-  private int quantity;
+    @Column(name = "quantity")
+    private int quantity;
 
 }

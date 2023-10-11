@@ -4,50 +4,86 @@ import com.simplon.dvdstore.services.DvdServiceModel;
 import com.simplon.dvdstore.services.DvdStoreService;
 import com.simplon.dvdstore.utils.DvdMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The type Dvd store controller.
+ */
 @RestController
 @RequestMapping("dvd")
 public class DvdStoreController {
 
-  @Autowired
-  private DvdStoreService dvdStoreService;
+    /**
+     * The Dvd mapper.
+     */
+    DvdMapper dvdMapper = DvdMapper.INSTANCE;
+    @Autowired
+    private DvdStoreService dvdStoreService;
 
-  DvdMapper dvdMapper = DvdMapper.INSTANCE;
-
-  @PostMapping
-  public void addDvd(@RequestBody DvdStoreDTO dvdStoreDTO) {
-    dvdStoreService.add(dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO), null);
-  }
-
-  @PostMapping("/bulk")
-  public void addAllDvds(@RequestBody List<DvdStoreDTO> dvdStoreDTOs) {
-    List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
-    for (DvdStoreDTO dvdStoreDTO : dvdStoreDTOs) {
-      DvdServiceModel dvdServiceModel =
-        dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO);
-      dvdServiceModels.add(dvdServiceModel);
+    /**
+     * Add dvd.
+     *
+     * @param dvdStoreDTO the dvd store dto
+     */
+    @PreAuthorize("hasAuthority('admin')")
+    @PostMapping
+    public void addDvd(@RequestBody DvdStoreDTO dvdStoreDTO) {
+        dvdStoreService.add(dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO), null);
     }
-    dvdStoreService.addAll(dvdServiceModels, null);
-  }
 
-  @GetMapping
-  public List<DvdStoreDTO> findAll() {
-    return dvdMapper.listDvdServiceModelToDvdStoreDTO(dvdStoreService.findAll());
-  }
+    /**
+     * Add all dvds.
+     *
+     * @param dvdStoreDTOs the dvd store dt os
+     */
+    @PreAuthorize("hasAuthority('admin')")
+    @PostMapping("/bulk")
+    public void addAllDvds(@RequestBody List<DvdStoreDTO> dvdStoreDTOs) {
+        List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
+        for (DvdStoreDTO dvdStoreDTO : dvdStoreDTOs) {
+            DvdServiceModel dvdServiceModel =
+                    dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO);
+            dvdServiceModels.add(dvdServiceModel);
+        }
+        dvdStoreService.addAll(dvdServiceModels, null);
+    }
 
-  @PutMapping("/{id}")
-  public void updateDvd(@PathVariable("id") long id, @RequestBody DvdStoreDTO dvdStoreDTO) {
-    dvdStoreService.add(dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO), id);
-  }
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
+    @GetMapping
+    public List<DvdStoreDTO> findAll() {
+        return dvdMapper.listDvdServiceModelToDvdStoreDTO(dvdStoreService.findAll());
+    }
 
-  @DeleteMapping("/{id}")
-  public boolean deleteDvd(@PathVariable("id") long id) {
-    return dvdStoreService.delete(id);
-  }
+    /**
+     * Update dvd.
+     *
+     * @param id          the id
+     * @param dvdStoreDTO the dvd store dto
+     */
+    @PreAuthorize("hasAuthority('admin')")
+    @PutMapping("/{id}")
+    public void updateDvd(@PathVariable("id") long id, @RequestBody DvdStoreDTO dvdStoreDTO) {
+        dvdStoreService.add(dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO), id);
+    }
+
+    /**
+     * Delete dvd boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+    @PreAuthorize("hasAuthority('admin')")
+    @DeleteMapping("/{id}")
+    public boolean deleteDvd(@PathVariable("id") long id) {
+        return dvdStoreService.delete(id);
+    }
 
 }
