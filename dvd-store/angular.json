@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "ng2-charts-schematics:line": {
+          "schema": "./path-to-schema.json"
         }
       },
       "root": "",

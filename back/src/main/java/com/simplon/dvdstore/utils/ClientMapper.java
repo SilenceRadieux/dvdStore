@@ -9,21 +9,63 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
+/**
+ * The interface Client mapper.
+ */
 @Mapper
 public interface ClientMapper {
 
-  ClientMapper INSTANCE = Mappers.getMapper(ClientMapper.class);
+    /**
+     * The constant INSTANCE.
+     */
+    ClientMapper INSTANCE = Mappers.getMapper(ClientMapper.class);
 
-  ClientServiceModel clientDTOToClientServiceModel(ClientDTO clientDTO);
+    /**
+     * Client dto to client service model client service model.
+     *
+     * @param clientDTO the client dto
+     * @return the client service model
+     */
+    ClientServiceModel clientDTOToClientServiceModel(ClientDTO clientDTO);
 
-  ClientRepositoryModel clientServiceModelToClientRepositoryModel(ClientServiceModel clientServiceModel);
+    /**
+     * Client service model to client repository model client repository model.
+     *
+     * @param clientServiceModel the client service model
+     * @return the client repository model
+     */
+    ClientRepositoryModel clientServiceModelToClientRepositoryModel(ClientServiceModel clientServiceModel);
 
-  ClientServiceModel clientRepositoryModelToClientServiceModel(ClientRepositoryModel clientRepositoryModel);
+    /**
+     * Client repository model to client service model client service model.
+     *
+     * @param clientRepositoryModel the client repository model
+     * @return the client service model
+     */
+    ClientServiceModel clientRepositoryModelToClientServiceModel(ClientRepositoryModel clientRepositoryModel);
 
-  ClientDTO clientServiceModelToClientDTO(ClientServiceModel clientServiceModel);
+    /**
+     * Client service model to client dto client dto.
+     *
+     * @param clientServiceModel the client service model
+     * @return the client dto
+     */
+    ClientDTO clientServiceModelToClientDTO(ClientServiceModel clientServiceModel);
 
-  List<ClientServiceModel> listClientRepositoryModelToClientServicieModel(List<ClientRepositoryModel> clientRepositoryModel);
+    /**
+     * List client repository model to client servicie model list.
+     *
+     * @param clientRepositoryModel the client repository model
+     * @return the list
+     */
+    List<ClientServiceModel> listClientRepositoryModelToClientServicieModel(List<ClientRepositoryModel> clientRepositoryModel);
 
-  List<ClientDTO> listClientServiceModelToClientDTO(List<ClientServiceModel> clientServiceModel);
+    /**
+     * List client service model to client dto list.
+     *
+     * @param clientServiceModel the client service model
+     * @return the list
+     */
+    List<ClientDTO> listClientServiceModelToClientDTO(List<ClientServiceModel> clientServiceModel);
 
 }

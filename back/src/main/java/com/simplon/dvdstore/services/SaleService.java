@@ -8,43 +8,75 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * The type Sale service.
+ */
 @Service
 public class SaleService {
 
-  @Autowired
-  SaleRepository saleRepository;
-  @Autowired
-  ClientRepository clientRepository;
-  @Autowired
-  DvdStoreRepository dvdRepository;
+    /**
+     * The Sale repository.
+     */
+    @Autowired
+    SaleRepository saleRepository;
+    /**
+     * The Client repository.
+     */
+    @Autowired
+    ClientRepository clientRepository;
+    /**
+     * The Dvd repository.
+     */
+    @Autowired
+    DvdStoreRepository dvdRepository;
 
-  SaleMapper saleMapper = SaleMapper.INSTANCE;
+    /**
+     * The Sale mapper.
+     */
+    SaleMapper saleMapper = SaleMapper.INSTANCE;
 
-  public void add(SaleServiceModel saleServiceModel, @Nullable Long id) {
-    SaleRepositoryModel saleRepositoryModel = saleMapper.saleServiceModelToSaleRepositoryModel(saleServiceModel,
-      clientRepository.findById(saleServiceModel.getClient()).get(),
-      dvdRepository.findById(saleServiceModel.getDvd()).get()
-    );
-    if (id != null) {
-      saleRepositoryModel.setId(id);
+    /**
+     * Add.
+     *
+     * @param saleServiceModel the sale service model
+     * @param id               the id
+     */
+    public void add(SaleServiceModel saleServiceModel, @Nullable Long id) {
+        SaleRepositoryModel saleRepositoryModel = saleMapper.saleServiceModelToSaleRepositoryModel(saleServiceModel,
+                clientRepository.findById(saleServiceModel.getClient()).get(),
+                dvdRepository.findById(saleServiceModel.getDvd()).get()
+        );
+        if (id != null) {
+            saleRepositoryModel.setId(id);
+        }
+        DvdRepositoryModel dvdRepositoryModel = saleRepositoryModel.getDvd();
+        int quantity = dvdRepositoryModel.getQuantity() - saleServiceModel.getQuantity();
+        dvdRepositoryModel.setQuantity(quantity);
+        saleRepository.save(saleRepositoryModel);
     }
-    DvdRepositoryModel dvdRepositoryModel = saleRepositoryModel.getDvd();
-    int quantity = dvdRepositoryModel.getQuantity() - saleServiceModel.getQuantity();
-    dvdRepositoryModel.setQuantity(quantity);
-    saleRepository.save(saleRepositoryModel);
-  }
 
-  public List<SaleServiceModel> findAll() {
-    return saleMapper.listSaleRepositoryModelToSaleServiceModel(saleRepository.findAll());
-  }
-
-  public boolean delete(long id) {
-    try {
-      saleRepository.deleteById(id);
-      return true;
-    } catch (Exception e) {
-      return false;
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
+    public List<SaleServiceModel> findAll() {
+        return saleMapper.listSaleRepositoryModelToSaleServiceModel(saleRepository.findAll());
     }
-  }
+
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+    public boolean delete(long id) {
+        try {
+            saleRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }

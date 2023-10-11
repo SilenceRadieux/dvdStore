@@ -8,8 +8,6 @@ import java.util.List;
 @Repository
 public interface SaleRepository extends CrudRepository<SaleRepositoryModel, Long> {
 
-  SaleRepositoryModel save(SaleRepositoryModel saleRepositoryModel);
-
-  List<SaleRepositoryModel> findAll();
+    List<SaleRepositoryModel> findAll();
 
 }

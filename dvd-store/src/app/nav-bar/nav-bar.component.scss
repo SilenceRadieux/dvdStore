@@ -1,0 +1,49 @@
+$color_1: #fff;
+$color_2: #FF4D2F;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_1: #FF4D2F;
+$background-color_2: #3A0144;
+$background-color_3: #333;
+
+
+.top-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $background-color_1;
+	.input-group {
+		width: 300px;
+	}
+	.user {
+		a {
+			text-decoration: none;
+			color: $color_1;
+			margin-right: 20px;
+		}
+	}
+}
+
+.bot-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $background-color_2;
+}
+
+.left-bot-header {
+	flex: 1;
+	font-family: $font-family_1;
+	color: $color_2;
+}
+
+.right-bot-header {
+	flex: 1;
+	font-family: $font-family_1;
+	color: $color_2;
+}
+
+.center-bot-header {
+	img {
+		max-width: 120px;
+	}
+}

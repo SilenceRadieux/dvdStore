@@ -7,33 +7,60 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The type Sale controller.
+ */
 @RestController
 @RequestMapping("sale")
 public class SaleController {
 
-  @Autowired
-  private SaleService saleService;
+    /**
+     * The Sale mapper.
+     */
+    SaleMapper saleMapper = SaleMapper.INSTANCE;
+    @Autowired
+    private SaleService saleService;
 
-  SaleMapper saleMapper = SaleMapper.INSTANCE;
+    /**
+     * Add sale.
+     *
+     * @param saleDTO the sale dto
+     */
+    @PostMapping
+    public void addSale(@RequestBody SaleDTO saleDTO) {
+        saleService.add(saleMapper.saleDTOToSaleServiceModel(saleDTO), null);
+    }
 
-  @PostMapping
-  public void addSale(@RequestBody SaleDTO saleDTO) {
-    saleService.add(saleMapper.saleDTOToSaleServiceModel(saleDTO), null);
-  }
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
+    @GetMapping
+    public List<SaleDTO> findAll() {
+        return saleMapper.listSaleServiceModelToSaleDTO(saleService.findAll());
+    }
 
-  @GetMapping
-  public List<SaleDTO> findAll() {
-    return saleMapper.listSaleServiceModelToSaleDTO(saleService.findAll());
-  }
+    /**
+     * Update sale.
+     *
+     * @param id      the id
+     * @param SaleDTO the sale dto
+     */
+    @PutMapping("/{id}")
+    public void updateSale(@PathVariable("id") long id, @RequestBody SaleDTO SaleDTO) {
+        saleService.add(saleMapper.saleDTOToSaleServiceModel(SaleDTO), id);
+    }
 
-  @PutMapping("/{id}")
-  public void updateSale(@PathVariable("id") long id, @RequestBody SaleDTO SaleDTO) {
-    saleService.add(saleMapper.saleDTOToSaleServiceModel(SaleDTO), id);
-  }
-
-  @DeleteMapping("/{id}")
-  public boolean deleteSale(@PathVariable("id") long id) {
-    return saleService.delete(id);
-  }
+    /**
+     * Delete sale boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+    @DeleteMapping("/{id}")
+    public boolean deleteSale(@PathVariable("id") long id) {
+        return saleService.delete(id);
+    }
 
 }
