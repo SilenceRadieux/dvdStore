@@ -6,6 +6,8 @@ $background-color_2: color-mix(in srgb, #FF4D2F 50%, #3A0144 50%);
 ul {
 	list-style-type: none;
 	text-decoration: none;
+  font-size: 28px;
+  font-family: $font-family_1;
 }
 
 .movies-filter {
@@ -13,9 +15,7 @@ ul {
 	width: 20vw;
 	position: fixed;
 	display: flex;
-	justify-content: flex-start;
-	margin-top: 24.7vh;
-    background-color: $background-color_1;
-	font-size: 35px;
-	font-family: $font-family_1;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $background-color_1;
 }

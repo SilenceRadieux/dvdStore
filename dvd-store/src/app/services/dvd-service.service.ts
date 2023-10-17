@@ -25,6 +25,7 @@ export class DvdServiceService {
           synopsis: data.synopsis,
           cover: data.cover,
           quantity: data.quantity,
+          price: data.price,
         }));
 
         return dvds;

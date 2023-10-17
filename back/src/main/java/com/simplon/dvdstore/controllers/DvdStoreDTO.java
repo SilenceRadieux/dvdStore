@@ -12,6 +12,7 @@ public record DvdStoreDTO(
         String releaseDate,
         String synopsis,
         String cover,
-        int quantity
+        int quantity,
+        Float price
 ) {
 }

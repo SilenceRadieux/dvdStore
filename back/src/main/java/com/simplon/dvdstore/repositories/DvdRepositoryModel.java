@@ -47,6 +47,9 @@ public class DvdRepositoryModel {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
+    @Column(name = "price", nullable = false)
+    private Float price;
+
     @OneToMany(mappedBy = "dvd")
     private Set<SaleRepositoryModel> recordings = new HashSet<>();
 

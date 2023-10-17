@@ -1,9 +1,8 @@
 <div class="grid-container">
   <div *ngFor="let dvd of dvds" class="movie-list">
     <div class="movie-list-item">
-      <img src="{{dvd.cover}}" alt="{{dvd.name}}">
-      <p>{{dvd.name}},<br>Directed by : {{dvd.directedBy}},<br>Released : {{dvd.releaseDate}}</p>
+      <img alt="{{dvd.name}}" src="{{dvd.cover}}">
+      <p>{{dvd.name}}, <br>Directed by : {{dvd.directedBy}},<br>Released : {{dvd.releaseDate}}</p>
     </div>
   </div>
 </div>
-

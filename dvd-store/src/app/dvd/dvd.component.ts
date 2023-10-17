@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DvdServiceService } from '../services/dvd-service.service';
 import { Dvd } from '../interface/dvd';
 
@@ -9,17 +9,14 @@ import { Dvd } from '../interface/dvd';
   styleUrls: ['./dvd.component.scss']
 })
 export class DvdComponent implements OnInit {
-  dvds: Dvd[] = []
-  errorMessage: string = ''
-  constructor(private dvdApi: DvdServiceService) {}
+
+@Input () dvds: Dvd[] = [];
+
+
+
+  constructor() {}
   ngOnInit() {
-    this.dvdApi.getAllDvds()
-      .then(res => {
-        this.dvds = res
-      })
-      .catch((error) => {
-        console.error(error.message)
-        this.errorMessage = error
-      });
-  }  
+
   }
+
+}

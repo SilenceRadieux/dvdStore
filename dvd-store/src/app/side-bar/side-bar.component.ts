@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,21 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
 
-  genreFilter: string = '';
-  dvds: any = [];
-  dvdToShow: any = [];
+@Output() dataEvent = new EventEmitter<String>();
 
   constructor() {}
 
-  handleGenreClickButton(genre: string) {
-  this.dvdToShow = this.dvds.filter((value: { genre: string; }) => {
-    return value.genre === genre;
-  });
+  sendGenre(genre: string) {
+    this.dataEvent.emit(genre);
   }
 
-  ngOnInit() {
-    this.dvdToShow = this.dvds;
-  }
+
 }

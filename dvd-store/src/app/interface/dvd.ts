@@ -8,4 +8,5 @@ export interface Dvd {
     synopsis: string
     cover: string
     quantity: number
+    price: number
   }

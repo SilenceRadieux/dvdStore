@@ -19,5 +19,6 @@ public class DvdServiceModel {
     private String synopsis;
     private String cover;
     private int quantity;
+    private Float price;
 
 }
