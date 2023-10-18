@@ -1,7 +1,11 @@
 package org.dvdstore.backpostgre;
 
-public class Main {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DvdStorePostgres {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SpringApplication.run(DvdStorePostgres.class, args);
     }
 }
