@@ -5,6 +5,7 @@ import org.dvdstore.backpostgre.utils.CartDvdMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -23,14 +24,12 @@ public class CartDvdController {
 
     @GetMapping("/{id}")
     public List<CartDvdDTO> findAllByCartId(@PathVariable("id") long id) {
-        return cartDvdMapper.listCartDvdServiceModelToCartDvdDTO(
-            cartDvdService.findAllByCartId(id)
-        );
+
     }
 
     @PutMapping("/{id}")
     public void updateCartDvd(@PathVariable("id") long id, @RequestBody CartDvdDTO CartDvdDTO) {
-        cartDvdService.add(cartDvdMapper.cartDvdDTOToCartDvdServiceModel(CartDvdDTO));
+        cartDvdService.add(cartDvdMapper.cartDvdDTOTocartDvdServiceModel(CartDvdDTO));
     }
 
     @DeleteMapping("/{id}")

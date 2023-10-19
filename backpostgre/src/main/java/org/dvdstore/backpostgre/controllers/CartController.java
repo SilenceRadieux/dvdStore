@@ -21,8 +21,16 @@ public class CartController {
         cartService.add(cartMapper.cartDTOToCartServiceModel(cartDTO), null);
     }
 
+    @GetMapping
+    public List<CartDTO> findAll() {
+        return cartService.findAll().stream().map(cartMapper::cartServiceModelToCartDTO).toList();
+    }
+
     @GetMapping("/{id}")
-    public List<CartDTO> findAll() {return cartMapper.listCartServiceModelToCartDTO(cartService.findAll());}
+    public CartDTO findById( @PathVariable("id") long id) {
+        return cartMapper.cartServiceModelToCartDTO(cartService.findById(id)
+        );
+    }
 
     @PutMapping("/{id}")
     public void updateCart(@PathVariable("id") long id, @RequestBody CartDTO CartDTO) {

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CartServiceModel {
 
-    private long client;
+    private long id_client;
     private long total_price;
 
 }

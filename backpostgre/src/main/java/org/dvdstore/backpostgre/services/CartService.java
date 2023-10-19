@@ -22,6 +22,10 @@ public class CartService {
         cartRepository.save(cartRepositoryModel);
     }
 
+    public CartServiceModel findById(long id) {
+        return cartMapper.cartRepositoryModelToCartServiceModel(cartRepository.findById(id).orElse(null));
+    }
+
     public List<CartServiceModel> findAll() {
         return cartMapper.listCartRepositoryModelToCartServiceModel(cartRepository.findAll());
     }

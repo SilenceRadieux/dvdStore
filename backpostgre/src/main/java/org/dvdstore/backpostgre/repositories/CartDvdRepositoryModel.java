@@ -16,7 +16,7 @@ public class CartDvdRepositoryModel {
 
     @ManyToOne
     @JoinColumn(name = "id_cart")
-    public CartRepositoryModel cart;
+    public CartRepositoryModel id_cart;
 
     @Column
     private long id_dvd;

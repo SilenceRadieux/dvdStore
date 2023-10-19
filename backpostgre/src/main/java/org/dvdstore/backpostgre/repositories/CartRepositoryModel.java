@@ -15,7 +15,7 @@ public class CartRepositoryModel {
     private Long id;
 
     @Column(name = "id_client")
-    private long client;
+    private long id_client;
 
     @Column
     private long total_price;

@@ -2,26 +2,29 @@ package org.dvdstore.backpostgre.utils;
 
 import org.dvdstore.backpostgre.controllers.CartDvdDTO;
 import org.dvdstore.backpostgre.repositories.CartDvdRepositoryModel;
+import org.dvdstore.backpostgre.repositories.CartRepositoryModel;
 import org.dvdstore.backpostgre.services.CartDvdServiceModel;
+import org.dvdstore.backpostgre.services.CartServiceModel;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-
-import java.util.List;
 
 @Mapper
 public interface CartDvdMapper {
 
     CartDvdMapper INSTANCE = Mappers.getMapper(CartDvdMapper.class);
 
-    CartDvdServiceModel cartDvdDTOToCartDvdServiceModel(CartDvdDTO CartDvdDTO);
+    CartDvdDTO cartDvdServiceModelToCartDvdDTO(CartDvdServiceModel cartDvdServiceModel);
 
-    CartDvdRepositoryModel cartDvdServiceModelToCartDvdRepositoryModel(CartDvdServiceModel cartDvdServiceModel);
+    CartServiceModel cartDvdRepositoryModelToCartDvdServiceModel(CartDvdRepositoryModel cartDvdRepositoryModel);
+
+    @Mapping(target = "id_cart", source = "cartRepositoryModel")
+    CartDvdRepositoryModel cartDvdServiceModelToCartDvdRepositoryModel(
+            CartDvdServiceModel cartDvdServiceModel, CartRepositoryModel cartRepositoryModel);
 
     CartDvdServiceModel cartDvdDTOTocartDvdServiceModel(CartDvdDTO cartDvdDTO);
 
-    List<CartDvdServiceModel> listCartDvdRepositoryModelToCartDvdServiceModel(List<CartDvdRepositoryModel> CartDvdRepositoryModel);
 
-    List<CartDvdDTO> listCartDvdServiceModelToCartDvdDTO(List<CartDvdServiceModel> CartDvdServiceModel);
 
 
 }

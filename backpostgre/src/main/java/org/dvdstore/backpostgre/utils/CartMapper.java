@@ -23,7 +23,6 @@ public interface CartMapper {
 
     CartDTO cartServiceModelToCartDTO(CartServiceModel CartServiceModel);
 
-
     List<CartDTO> listCartServiceModelToCartDTO(List<CartServiceModel> CartServiceModel);
 
     List<CartServiceModel> listCartRepositoryModelToCartServiceModel(Iterable<CartRepositoryModel> all);
