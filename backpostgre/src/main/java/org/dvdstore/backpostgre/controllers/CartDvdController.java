@@ -1,11 +1,11 @@
 package org.dvdstore.backpostgre.controllers;
 
+import org.dvdstore.backpostgre.exceptions.IdNotFoundException;
 import org.dvdstore.backpostgre.services.CartDvdService;
 import org.dvdstore.backpostgre.utils.CartDvdMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -23,8 +23,9 @@ public class CartDvdController {
     }
 
     @GetMapping("/{id}")
-    public List<CartDvdDTO> findAllByCartId(@PathVariable("id") long id) {
 
+    public List<CartDvdDTO> findAllByIdCart(@PathVariable("id") long id) {
+    return null;
     }
 
     @PutMapping("/{id}")
@@ -33,6 +34,12 @@ public class CartDvdController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteCartDvd(@PathVariable("id") long id){return cartDvdService.delete(id);}
+    public boolean deleteCartDvd(@PathVariable("id") long id) throws IdNotFoundException {
+        try {
+            return cartDvdService.delete(id);
+        } catch (Exception e) {
+            throw new IdNotFoundException("");
 
+        }
+    }
 }

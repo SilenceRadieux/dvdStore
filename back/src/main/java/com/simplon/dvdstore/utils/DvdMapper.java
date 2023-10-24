@@ -1,6 +1,6 @@
 package com.simplon.dvdstore.utils;
 
-import com.simplon.dvdstore.controllers.DvdStoreDTO;
+import com.simplon.dvdstore.dto.DvdStoreDTO;
 import com.simplon.dvdstore.repositories.DvdRepositoryModel;
 import com.simplon.dvdstore.services.DvdServiceModel;
 import org.mapstruct.Mapper;

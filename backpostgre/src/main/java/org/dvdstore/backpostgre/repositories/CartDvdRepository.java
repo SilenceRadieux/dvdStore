@@ -11,14 +11,14 @@ import java.util.List;
 @Repository
 public interface CartDvdRepository extends CrudRepository<CartDvdRepositoryModel, Long> {
 
-    List<CartDvdRepositoryModel> findAllByCartId(long id);
+    List<CartDvdRepositoryModel> findAllByIdCart(long id);
 
     @Transactional
     @Modifying
     @Query(value="CALL dvd_cart_price(:id)", nativeQuery = true)
-    void total_dvd(long id);
+    void total_dvd(Long id);
     @Transactional
     @Modifying
     @Query(value="CALL cart_total_price(:id)", nativeQuery = true)
-    void total(long id);
+    void total(Long id);
 }

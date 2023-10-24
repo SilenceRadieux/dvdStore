@@ -1,6 +1,6 @@
 package com.simplon.dvdstore.utils;
 
-import com.simplon.dvdstore.controllers.SaleDTO;
+import com.simplon.dvdstore.dto.SaleDTO;
 import com.simplon.dvdstore.repositories.ClientRepositoryModel;
 import com.simplon.dvdstore.repositories.DvdRepositoryModel;
 import com.simplon.dvdstore.repositories.SaleRepositoryModel;

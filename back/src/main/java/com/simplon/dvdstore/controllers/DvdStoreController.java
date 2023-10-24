@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.controllers;
 
+import com.simplon.dvdstore.dto.DvdStoreDTO;
 import com.simplon.dvdstore.services.DvdServiceModel;
 import com.simplon.dvdstore.services.DvdStoreService;
 import com.simplon.dvdstore.utils.DvdMapper;

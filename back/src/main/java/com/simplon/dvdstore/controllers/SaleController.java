@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.controllers;
 
+import com.simplon.dvdstore.dto.SaleDTO;
 import com.simplon.dvdstore.services.SaleService;
 import com.simplon.dvdstore.utils.SaleMapper;
 import org.springframework.beans.factory.annotation.Autowired;

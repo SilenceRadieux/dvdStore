@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.controllers;
 
+import com.simplon.dvdstore.dto.ClientDTO;
 import com.simplon.dvdstore.services.ClientService;
 import com.simplon.dvdstore.services.ClientServiceModel;
 import com.simplon.dvdstore.utils.ClientMapper;
@@ -29,7 +30,7 @@ public class ClientController {
      * @param clientDTO the client dto
      */
     @PostMapping
-    public void addClient(@RequestBody com.simplon.dvdstore.controllers.ClientDTO clientDTO) {
+    public void addClient(@RequestBody ClientDTO clientDTO) {
         clientService.add(clientMapper.clientDTOToClientServiceModel(clientDTO), null);
     }
 
@@ -40,9 +41,9 @@ public class ClientController {
      * @param clientDTOs the client dt os
      */
     @PostMapping("/bulk")
-    public void addAllClients(@RequestBody List<com.simplon.dvdstore.controllers.ClientDTO> clientDTOs) {
+    public void addAllClients(@RequestBody List<ClientDTO> clientDTOs) {
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
-        for (com.simplon.dvdstore.controllers.ClientDTO clientDTO : clientDTOs) {
+        for (ClientDTO clientDTO : clientDTOs) {
             ClientServiceModel clientServiceModel =
                     clientMapper.clientDTOToClientServiceModel(clientDTO);
             clientServiceModels.add(clientServiceModel);
@@ -56,7 +57,7 @@ public class ClientController {
      * @return the list
      */
     @GetMapping
-    public List<com.simplon.dvdstore.controllers.ClientDTO> findAll() {
+    public List<ClientDTO> findAll() {
         return clientMapper.listClientServiceModelToClientDTO(clientService.findAll());
     }
 
@@ -67,7 +68,7 @@ public class ClientController {
      * @param ClientDTO the client dto
      */
     @PutMapping("/{id}")
-    public void updateClient(@PathVariable("id") long id, @RequestBody com.simplon.dvdstore.controllers.ClientDTO ClientDTO) {
+    public void updateClient(@PathVariable("id") long id, @RequestBody ClientDTO ClientDTO) {
         clientService.add(clientMapper.clientDTOToClientServiceModel(ClientDTO), id);
     }
 

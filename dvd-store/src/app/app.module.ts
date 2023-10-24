@@ -18,9 +18,10 @@ import { DetailsDvdComponent } from './details-dvd/details-dvd.component';
     NavBarComponent,
     SideBarComponent,
     DvdComponent,
-    DetailsDvdComponent,
+    DetailsDvdComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     FormsModule,

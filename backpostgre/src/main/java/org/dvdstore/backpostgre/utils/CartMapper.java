@@ -14,16 +14,48 @@ public interface CartMapper {
 
     CartMapper INSTANCE = Mappers.getMapper(CartMapper.class);
 
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //       DTO  ->  Service  -->  Repository
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     CartServiceModel cartDTOToCartServiceModel(CartDTO CartDTO);
 
     @Mapping(target = "id", ignore = true)
     CartRepositoryModel cartServiceModelToCartRepositoryModel(CartServiceModel cartServiceModel);
 
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //            List<DTO>  ->  List<Service>  -->  List<Repository>
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //                                     END
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // ------------------------------------------------------------------------------
+    //                     Repository  ->  Service  -->  GetDTO
+    // ------------------------------------------------------------------------------
+
     CartServiceModel cartRepositoryModelToCartServiceModel(CartRepositoryModel CartRepositoryModel);
 
     CartDTO cartServiceModelToCartDTO(CartServiceModel CartServiceModel);
 
-    List<CartDTO> listCartServiceModelToCartDTO(List<CartServiceModel> CartServiceModel);
+    // ------------------------------------------------------------------------------
+    //             List<Repository>  ->  List<Service>  -->  List<GetDTO>
+    // ------------------------------------------------------------------------------
 
     List<CartServiceModel> listCartRepositoryModelToCartServiceModel(Iterable<CartRepositoryModel> all);
+
+    List<CartDTO> listCartServiceModelToCartDTO(List<CartServiceModel> CartServiceModel);
+
+    // ------------------------------------------------------------------------------
+    //                                    END
+    // ------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 }

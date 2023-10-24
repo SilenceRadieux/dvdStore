@@ -14,17 +14,44 @@ public interface CartDvdMapper {
 
     CartDvdMapper INSTANCE = Mappers.getMapper(CartDvdMapper.class);
 
-    CartDvdDTO cartDvdServiceModelToCartDvdDTO(CartDvdServiceModel cartDvdServiceModel);
-
-    CartServiceModel cartDvdRepositoryModelToCartDvdServiceModel(CartDvdRepositoryModel cartDvdRepositoryModel);
-
-    @Mapping(target = "id_cart", source = "cartRepositoryModel")
-    CartDvdRepositoryModel cartDvdServiceModelToCartDvdRepositoryModel(
-            CartDvdServiceModel cartDvdServiceModel, CartRepositoryModel cartRepositoryModel);
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //       DTO  ->  Service  -->  Repository
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     CartDvdServiceModel cartDvdDTOTocartDvdServiceModel(CartDvdDTO cartDvdDTO);
 
+    @Mapping(target = "idCart")
+    CartDvdRepositoryModel cartDvdServiceModelToCartDvdRepositoryModel(
+            CartDvdServiceModel cartDvdServiceModel, CartRepositoryModel cartRepositoryModel);
 
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //            List<DTO>  ->  List<Service>  -->  List<Repository>
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //                                     END
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // ------------------------------------------------------------------------------
+    //                     Repository  ->  Service  -->  GetDTO
+    // ------------------------------------------------------------------------------
+
+    CartServiceModel cartDvdRepositoryModelToCartDvdServiceModel(CartDvdRepositoryModel cartDvdRepositoryModel);
+
+    CartDvdDTO cartDvdServiceModelToCartDvdDTO(CartDvdServiceModel cartDvdServiceModel);
+
+    // ------------------------------------------------------------------------------
+    //             List<Repository>  ->  List<Service>  -->  List<GetDTO>
+    // ------------------------------------------------------------------------------
+
+
+
+
+    // ------------------------------------------------------------------------------
+    //                                    END
+    // ------------------------------------------------------------------------------
 
 
 }

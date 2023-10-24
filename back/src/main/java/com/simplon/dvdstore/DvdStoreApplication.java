@@ -2,6 +2,7 @@ package com.simplon.dvdstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * The type Dvd store application.
  */
 @SpringBootApplication
+@EnableFeignClients
 public class DvdStoreApplication {
     /**
      * The entry point of application.

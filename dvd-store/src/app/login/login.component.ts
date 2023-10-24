@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,11 @@ export class LoginComponent {
           this.errorMessage = 'Please enter both a username and password.';
           return;
         }
-        this.authService.login(this.username, this.password).subscribe(
-          (response) => {
+        this.authService.login(this.username, this.password).then(
+          (response: any) => {
             this.router.navigate(['/home']);
           },
-          (error) => {
+          (error: any) => {
             this.errorMessage = 'Authentication failed. Please check your credentials.';
           }
         );

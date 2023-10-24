@@ -20,15 +20,15 @@ public class CartDvdService {
 
     public void add(CartDvdServiceModel cartDvdServiceModel) {
         CartDvdRepositoryModel cartDvdRepositoryModel =cartDvdMapper.cartDvdServiceModelToCartDvdRepositoryModel(
-                cartDvdServiceModel, cartRepository.findById(cartDvdServiceModel.getId_cart()).get());
+                cartDvdServiceModel, cartRepository.findById(cartDvdServiceModel.getIdCart()).get());
         cartDvdRepository.save(cartDvdRepositoryModel);
         cartDvdRepository.total_dvd(cartDvdRepositoryModel.getId());
-        cartDvdRepository.total(cartDvdRepositoryModel.getId_cart().getId());
+        cartDvdRepository.total(cartDvdRepositoryModel.getCart().getId());
     }
 
-    public CartDvdServiceModel findAllByCartId(long id) {
+    /*public CartDvdServiceModel findAllByCartId(long id) {
         return cartDvdMapper.cartDvdRepositoryModelToCartDvdServiceModel();
-    }
+    }*/
 
     public boolean delete(long id) {
         try {

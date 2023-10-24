@@ -12,20 +12,23 @@ public class CartDvdRepositoryModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "BIGINT")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_cart")
-    public CartRepositoryModel id_cart;
+    @JoinColumn(name = "cartDvdRepositoryModels")
+    public CartRepositoryModel cart;
 
-    @Column
-    private long id_dvd;
+    @Column(name = "id_cart", columnDefinition = "BIGINT")
+    public Long idCart;
 
-    @Column
-    private long quantity;
+    @Column(name = "id_dvd", columnDefinition = "BIGINT")
+    private Long idDvd;
 
-    @Column
-    private long price;
+    @Column(columnDefinition = "BIGINT")
+    private Long quantity;
 
+    @Column(columnDefinition = "BIGINT")
+    private Long price;
 
 }

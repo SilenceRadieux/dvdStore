@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CartDvdServiceModel {
 
-    private long id_cart;
-    private long id_dvd;
-    private long quantity;
-    private long price;
+    private Long idCart;
+    private Long idDvd;
+    private Long quantity;
+    private Long price;
 
 }

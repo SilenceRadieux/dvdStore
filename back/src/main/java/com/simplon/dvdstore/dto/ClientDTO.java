@@ -1,4 +1,4 @@
-package com.simplon.dvdstore.controllers;
+package com.simplon.dvdstore.dto;
 
 /**
  * The type Client dto.
