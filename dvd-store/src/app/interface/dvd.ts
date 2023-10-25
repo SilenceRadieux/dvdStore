@@ -1,4 +1,5 @@
 export interface Dvd {
+    id: number
     isan: string
     name: string
     genre: string

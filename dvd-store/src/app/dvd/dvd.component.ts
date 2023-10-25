@@ -12,11 +12,7 @@ export class DvdComponent implements OnInit {
 
 @Input () dvds: Dvd[] = [];
 
-
-
   constructor() {}
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }

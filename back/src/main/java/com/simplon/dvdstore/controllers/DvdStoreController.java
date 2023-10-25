@@ -63,6 +63,11 @@ public class DvdStoreController {
         return dvdMapper.listDvdServiceModelToDvdStoreDTO(dvdStoreService.findAll());
     }
 
+    @GetMapping("/{id}")
+    public DvdStoreDTO findDvdById(@PathVariable("id") long id) {
+        return dvdMapper.dvdServiceModelToDvdStoreDTO(dvdStoreService.findById(id));
+    }
+
     /**
      * Update dvd.
      *

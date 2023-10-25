@@ -1,0 +1,35 @@
+div {
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  background-color: color-mix(in srgb, #FF4D2F 50%, #3A0144 50%);
+  padding: 20px;
+  margin: 0 auto;
+
+  .left_side_details {
+    img {
+      height: 491px;
+        width: 331px;
+    }
+  }
+
+  .right_side_details {
+  flex-direction: column;
+    flex: 1;
+    padding-left: 20px;
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 5px 0;
+
+      &.info {
+        font-weight: bold;
+      }
+    }
+  }
+}

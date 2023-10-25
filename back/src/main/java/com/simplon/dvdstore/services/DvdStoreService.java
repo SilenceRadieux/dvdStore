@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The type Dvd store service.
@@ -63,6 +64,13 @@ public class DvdStoreService {
         return dvdMapper.listDvdRepositoryModelToDvdServiceModel((List<DvdRepositoryModel>)
                 dvdStoreRepository.findAll());
     }
+
+    public DvdServiceModel findById(Long id) {
+        Optional<DvdRepositoryModel> dvdOptional = dvdStoreRepository.findById(id);
+        return dvdOptional.map(dvdRepositoryModel ->
+                dvdMapper.dvdRepositoryModelToDvdServiceModel(dvdRepositoryModel)).orElse(null);
+    }
+
 
     /**
      * Delete boolean.

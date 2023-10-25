@@ -1,1 +1,18 @@
-<p>details-dvd works!</p>
+<div *ngIf="dvd">
+  <div class="left_side_details">
+    <p> <img alt="{{dvd.name}}" src="{{dvd.cover}} "></p>
+  </div>
+  <div class="right_side_details">
+    <h1>{{dvd.name}}</h1>
+    <p>{{dvd.genre}}</p>
+    <p>Directed by : {{dvd.directedBy}}</p>
+    <p>Duration : {{dvd.duration}}</p>
+    <p>Released : {{dvd.releaseDate}}</p>
+    <p>{{dvd.synopsis}}</p>
+    <p>Price : {{dvd.price}}€</p>
+    <p>Quantity : {{dvd.quantity}} in stock</p>
+  </div>
+  <div class="add_to_cart">
+    <button (click)="addCartDvd()">Add to cart</button>
+  </div>
+</div>

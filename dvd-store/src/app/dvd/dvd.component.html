@@ -1,7 +1,9 @@
 <div class="grid-container">
   <div *ngFor="let dvd of dvds" class="movie-list">
     <div class="movie-list-item">
-      <img alt="{{dvd.name}}" src="{{dvd.cover}}">
+      <a routerLink="/details-dvd/{{dvd.id}}">
+        <img alt="{{dvd.name}}" src="{{dvd.cover}}">
+      </a>
       <p>{{dvd.name}}, <br>Directed by : {{dvd.directedBy}},<br>Released : {{dvd.releaseDate}}</p>
     </div>
   </div>

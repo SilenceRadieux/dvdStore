@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DvdServiceModel {
 
+    private Long id;
     private String Isan;
     private String name;
     private String genre;

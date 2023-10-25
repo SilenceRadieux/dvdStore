@@ -10,6 +10,13 @@ ul {
   font-family: $font-family_1;
 }
 
+button {
+  font-size: 22px;
+  background-color: $background-color_2;
+  border-radius: 5px;
+  border: none;
+}
+
 .movies-filter {
 	height: 80vh;
 	width: 20vw;

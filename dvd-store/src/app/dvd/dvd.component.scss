@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding-left: 25vw;
+  min-height: 66vh;
 }
 
 .movie-list {
@@ -16,7 +17,7 @@
 }
 
 img {
-height: 273px;
+  height: 273px;
   width: 184px;
 }
 
