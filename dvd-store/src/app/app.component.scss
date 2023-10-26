@@ -11,6 +11,13 @@ $background-color_1: #FF4D2F;
 $background-color_2: #3A0144;
 $background-color_3: #333;
 
+.routlet_ion {
+  inset: 0px;
+   position: inherit!important;
+   contain:  none !important;
+
+   z-index: 0;
+}
 
 header {
 font-family: 'IBMPlexMono';

@@ -9,6 +9,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { DvdComponent } from './dvd/dvd.component';
 import { DetailsDvdComponent } from './details-dvd/details-dvd.component';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { RouteReuseStrategy } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,12 @@ import { DetailsDvdComponent } from './details-dvd/details-dvd.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    IonicModule.forRoot(),
 
   ],
-  providers: [],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

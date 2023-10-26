@@ -7,8 +7,8 @@ import { DetailsDvdComponent } from './details-dvd/details-dvd.component';
 const routes: Routes = [
   {
     path: 'home',
-    pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
     path :'login',
@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'details-dvd/:id',
-    component: DetailsDvdComponent
+    component: DetailsDvdComponent,
+
   }
 
 ];

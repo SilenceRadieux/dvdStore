@@ -10,14 +10,14 @@ import { Dvd } from '../interface/dvd';
 })
 
 export class DetailsDvdComponent implements OnInit {
+id=this.route.snapshot.params['id'];
+
+dvd: Dvd;
 
 constructor(private dvdApi: DvdServiceService, private route: ActivatedRoute) {
   this.dvd = {} as Dvd;
 }
 
-id=this.route.snapshot.params['id'];
-
-dvd: Dvd;
 
 ngOnInit() {
   this.dvdApi.getDvdById(this.id)

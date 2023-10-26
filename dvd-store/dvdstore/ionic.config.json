@@ -1,0 +1,7 @@
+{
+  "name": "dvdstore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
