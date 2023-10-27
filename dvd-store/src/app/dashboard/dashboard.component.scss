@@ -1,0 +1,54 @@
+/* Style the container */
+p {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the text inside the container */
+p {
+  color: #333; /* Text color */
+}
+
+/* Style the headings in the message */
+p strong {
+  font-weight: bold;
+  color: #007bff; /* Heading color */
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody tr {
+  border: 1px solid #ddd;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #e0e0e0;
+}

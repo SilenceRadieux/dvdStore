@@ -11,6 +11,13 @@ import { DvdComponent } from './dvd/dvd.component';
 import { DetailsDvdComponent } from './details-dvd/details-dvd.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { RouteReuseStrategy } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditDvdComponent } from './edit-dvd/edit-dvd.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DashboardSideBarComponent } from './dashboard-side-bar/dashboard-side-bar.component';
+import { ClientComponent } from './client/client.component';
+import { SaleComponent } from './sale/sale.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,12 @@ import { RouteReuseStrategy } from '@angular/router';
     NavBarComponent,
     SideBarComponent,
     DvdComponent,
-    DetailsDvdComponent
+    DetailsDvdComponent,
+    DashboardComponent,
+    EditDvdComponent,
+    DashboardSideBarComponent,
+    ClientComponent,
+    SaleComponent
   ],
   imports: [
 
@@ -28,6 +40,8 @@ import { RouteReuseStrategy } from '@angular/router';
     AppRoutingModule,
     FormsModule,
     IonicModule.forRoot(),
+    BrowserAnimationsModule,
+    MatDialogModule,
 
   ],
   providers: [

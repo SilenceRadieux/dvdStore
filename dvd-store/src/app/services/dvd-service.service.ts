@@ -76,4 +76,12 @@ export class DvdServiceService {
   }
   }
 
+  updateDvd = async (dvd: Dvd) => {
+    try {
+      const response = await axios.put(this.apiUrl+"/"+dvd.id, dvd);
+  } catch (error) {
+    throw new Error('Une erreur s\'est produite lors de la modification du dvd : ' + error);
+  }
+  }
+
 }

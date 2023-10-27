@@ -1,0 +1,47 @@
+/* Sidebar container */
+.sidebar {
+  width: 200px;
+  background-color: #333; /* Sidebar background color */
+  color: #fff; /* Text color */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+/* Sidebar navigation list */
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sidebar list items */
+.sidebar-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar links */
+.sidebar-link {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff; /* Link text color */
+}
+
+/* Style for sidebar links on hover */
+.sidebar-link:hover {
+  background-color: #007bff; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}
+
+/* Active link style (you can add a specific class for the active link) */
+.sidebar-link.active {
+  background-color: #007bff;
+}
+
+/* Add a transition effect for link hover */
+.sidebar-link {
+  transition: background-color 0.3s, color 0.3s;
+}

@@ -54,8 +54,12 @@ public class SecurityConfigurer {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .addFilterBefore(securityFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(authorize -> authorize
+/*
                         .requestMatchers("/client/**").hasAuthority("admin")
+*/
+/*
                         .requestMatchers("/sale/**").hasAuthority("admin")
+*/
                         .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults())

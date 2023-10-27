@@ -74,7 +74,9 @@ public class DvdStoreController {
      * @param id          the id
      * @param dvdStoreDTO the dvd store dto
      */
+/*
     @PreAuthorize("hasAuthority('admin')")
+*/
     @PutMapping("/{id}")
     public void updateDvd(@PathVariable("id") long id, @RequestBody DvdStoreDTO dvdStoreDTO) {
         dvdStoreService.add(dvdMapper.dvdStoreDTOToDvdServiceModel(dvdStoreDTO), id);
@@ -86,7 +88,9 @@ public class DvdStoreController {
      * @param id the id
      * @return the boolean
      */
+/*
     @PreAuthorize("hasAuthority('admin')")
+*/
     @DeleteMapping("/{id}")
     public boolean deleteDvd(@PathVariable("id") long id) {
         return dvdStoreService.delete(id);

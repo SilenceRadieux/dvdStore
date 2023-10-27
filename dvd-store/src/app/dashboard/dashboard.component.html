@@ -1,0 +1,77 @@
+<app-dashboard-side-bar (dataEvent)="getDvd()" (dataEvent2)="getClient()" (dataEvent3)="getSale()">
+</app-dashboard-side-bar>
+
+<p *ngIf="!isDvdTableVisible && !isClientTableVisible && !isSaleTableVisible">
+  Welcome to the Administrator Dashboard !<br>
+  Manage and oversee your operations with ease.<br>
+  Feel free to explore the powerful tools and features at your disposal.<br>
+  If you have any questions or need assistance,<br>
+  don't hesitate to reach out.<br>
+  We're here to help you make informed decisions and<br>
+  streamline your workflow.<br>
+  Let's get started !</p>
+
+<table *ngIf="isDvdTableVisible">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>ISAN</th>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Directed By</th>
+    <th>Duration</th>
+    <th>Release Date</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let dvd of dvds"  (click)="openEditModal(dvd)">
+    <td>{{ dvd.id }}</td>
+    <td>{{ dvd.isan }}</td>
+    <td>{{ dvd.name }}</td>
+    <td>{{ dvd.genre }}</td>
+    <td>{{ dvd.directedBy }}</td>
+    <td>{{ dvd.duration }}</td>
+    <td>{{ dvd.releaseDate }}</td>
+    <td>{{ dvd.quantity }}</td>
+    <td>{{ dvd.price }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<table *ngIf="isClientTableVisible">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>E-mail</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of clients">
+    <td>{{ client.id }}</td>
+    <td>{{ client.email }}</td>
+    <td>{{ client.name }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<table *ngIf="isSaleTableVisible">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Quantity</th>
+    <th>Client ID</th>
+    <th>DVD ID</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let sale of sales">
+    <td>{{ sale.id }}</td>
+    <td>{{ sale.quantity }}</td>
+    <td>{{ sale.client_id }}</td>
+    <td>{{ sale.dvd_id }}</td>
+  </tr>
+  </tbody>
+</table>
