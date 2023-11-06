@@ -1,0 +1,22 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding-left: 25vw;
+}
+
+.movie-list {
+  background-color: color-mix(in srgb , #FF4D2F 50%, #3A0144 50% );
+  border: 1px solid #3A0144;
+  padding: 10px;
+}
+
+.movie-list-item {
+  text-align: center;
+}
+
+img {
+height: 273px;
+  width: 184px;
+}
+

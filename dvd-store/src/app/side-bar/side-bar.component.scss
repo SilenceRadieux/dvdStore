@@ -1,0 +1,21 @@
+$color_1: #3A0144;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_1: #FF4D2F;
+$background-color_2: color-mix(in srgb, #FF4D2F 50%, #3A0144 50%);
+
+ul {
+	list-style-type: none;
+	text-decoration: none;
+  font-size: 28px;
+  font-family: $font-family_1;
+}
+
+.movies-filter {
+	height: 80vh;
+	width: 20vw;
+	position: fixed;
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $background-color_1;
+}

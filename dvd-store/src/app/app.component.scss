@@ -1,0 +1,33 @@
+@font-face {
+font-family: 'IBMPlexMono';
+src: url('/assets/fonts/IBMPlexMono.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+$color_1: #fff;
+$color_2: #FF4D2F;
+$background-color_1: #FF4D2F;
+$background-color_2: #3A0144;
+$background-color_3: #333;
+
+
+header {
+font-family: 'IBMPlexMono';
+	width: 100vw;
+	text-align: center;
+	position: fixed;
+}
+
+main {
+font-family: 'IBMPlexMono';
+  padding-top: 25vh;
+  background-color: $background-color_1;
+}
+
+footer {
+	text-align: center;
+	padding: 10px 0;
+	background-color: $background-color_3;
+	color: $color_1;
+}

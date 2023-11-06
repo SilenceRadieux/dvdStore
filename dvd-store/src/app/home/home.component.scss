@@ -1,0 +1,40 @@
+$color_1: #3A0144;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_1: #FF4D2F;
+$background-color_2: color-mix(in srgb, #FF4D2F 50%, #3A0144 50%);
+
+h1 {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+h2 {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+h3 {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+p {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+ul {
+	list-style-type: none;
+}
+
+.nav-link {
+	color: $color_1;
+	text-decoration: none;
+}
+main {
+	display: flex;
+}
+
+.movie-fiche {
+	background-color: $background-color_2;
+}
