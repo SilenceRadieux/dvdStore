@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}">
   <ul class="sidebar-nav">
     <li class="sidebar-item">
       <a class="sidebar-link" (click)="showDvdTable()">
@@ -17,3 +17,6 @@
     </li>
   </ul>
 </aside>
+<button class="sidebar-toggle" (click)="toggleSidebar()">
+  SideBar que j'ai voulu mettre et que j'arrive pas à cacher du coup j'ai fait comme ça pour pas avoir à toucher tout le CSS
+</button>

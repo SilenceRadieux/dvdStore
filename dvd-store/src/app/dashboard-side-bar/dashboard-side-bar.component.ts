@@ -15,6 +15,8 @@ export class DashboardSideBarComponent {
 
   }
 
+  isSidebarVisible = true;
+
   isDvdTableVisible = false;
   isClientTableVisible = false;
   isSaleTableVisible = false;
@@ -41,6 +43,10 @@ export class DashboardSideBarComponent {
     this.isSaleTableVisible = false;
     this.dataEvent3.emit();
     this.cdRef.detectChanges();
+  }
+
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
   }
 
 }

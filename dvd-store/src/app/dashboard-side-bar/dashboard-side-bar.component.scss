@@ -9,6 +9,15 @@
   height: 100%;
 }
 
+.sidebar-toggle {
+  position: fixed;
+  bot: 0;
+  left: 0;
+  padding: 15px 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
 /* Sidebar navigation list */
 .sidebar-nav {
   list-style-type: none;
@@ -45,3 +54,8 @@
 .sidebar-link {
   transition: background-color 0.3s, color 0.3s;
 }
+
+.sidebar.hidden {
+  display: none;
+}
+
